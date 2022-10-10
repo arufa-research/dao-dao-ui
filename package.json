@@ -13,7 +13,7 @@
     "test": "turbo run test",
     "dapp": "yarn workspace @dao-dao/dapp",
     "raw-sda": "yarn workspace @dao-dao/raw-sda",
-    "sda-base": "yarn workspace @dao-dao/sda-base",
+    "seasy-sda": "yarn workspace @dao-dao/seasy-sda",
     "icons": "yarn workspace @dao-dao/icons",
     "state": "yarn workspace @dao-dao/state",
     "ui": "yarn workspace @dao-dao/ui",

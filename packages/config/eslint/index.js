@@ -87,7 +87,7 @@ const eslintConfig = {
             ignoreMemberSort: false,
           },
         ],
-        'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-imports': 'off',
         'unused-imports/no-unused-vars': [
           'warn',
           {
