@@ -12,6 +12,7 @@ import { Modal } from '../Modal'
 import { ActionButton } from './ActionButton'
 import { AmountSelector } from './AmountSelector'
 import { PercentButton, PercentSelector } from './PercentSelector'
+import { DurationButton, DurationSelector } from './DurationSelector'
 
 export enum StakingMode {
   Stake,
@@ -224,6 +225,18 @@ const StakeUnstakeModesBody = ({
                 tokenDecimals={tokenDecimals}
               />
             )}
+        </div>
+        <br></br>
+        <hr></hr>
+        <br></br>
+        <h2 className="mb-3 primary-text">{'Choose unstaking period'}</h2>
+        <div className="mt-4">
+          <DurationSelector
+            amount={amount}
+            max={max}
+            setAmount={setAmount}
+            tokenDecimals={tokenDecimals}
+          />
         </div>
       </div>
 
