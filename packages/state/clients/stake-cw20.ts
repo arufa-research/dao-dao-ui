@@ -184,7 +184,7 @@ export class StakeCw20QueryClient implements StakeCw20ReadOnlyInterface {
   }
   totalValue = async (): Promise<TotalValueResponse> => {
     return this.client.queryContractSmart(this.contractAddress, {
-      total_value: {},
+      total_staked: {},
     })
   }
   getConfig = async (): Promise<GetConfigResponse> => {
