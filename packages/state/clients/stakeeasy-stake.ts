@@ -6,7 +6,7 @@
 
 import { CosmWasmClient, SigningCosmWasmClient, ExecuteResult } from "@cosmjs/cosmwasm-stargate";
 import { Coin, StdFee } from "@cosmjs/amino";
-import { AdminResponse, Uint128, AllStakedResponse, StakedResponse, Decimal, BondingInfoResponse, BondingPeriodInfo, Expiration, Timestamp, Uint64, ClaimsResponse, Claim, Addr, DelegatedResponse, DistributedRewardsResponse, DistributionDataResponse, ExecuteMsg, Binary, Cw20ReceiveMsg, HooksResponse, InfoResponse, ContractVersion, InstantiateMsg, StakeConfig, QueryMsg, RewardsResponse, TokenContractResponse, TotalPowerAtHeightResponse, TotalRewardsResponse, TotalStakedResponse, UndistributedRewardsResponse, VotingPowerAtHeightResponse, WithdrawAdjustmentDataResponse, WithdrawableRewardsResponse } from "./StakeeasyStake.types";
+import { AdminResponse, Uint128, AllStakedResponse, StakedResponse, Decimal, BondingInfoResponse, BondingPeriodInfo, Expiration, Timestamp, Uint64, ClaimsResponse, Claim, Addr, DelegatedResponse, DistributedRewardsResponse, DistributionDataResponse, ExecuteMsg, Binary, Cw20ReceiveMsg, HooksResponse, InfoResponse, ContractVersion, InstantiateMsg, StakeConfig, QueryMsg, RewardsResponse, TokenContractResponse, TotalPowerAtHeightResponse, TotalRewardsResponse, TotalStakedResponse, UndistributedRewardsResponse, VotingPowerAtHeightResponse, WithdrawAdjustmentDataResponse, WithdrawableRewardsResponse } from "./stakeeasy-stake.types";
 export interface StakeeasyStakeReadOnlyInterface {
   contractAddress: string;
   claims: ({
@@ -27,7 +27,7 @@ export interface StakeeasyStakeReadOnlyInterface {
     address: string;
   }) => Promise<AllStakedResponse>;
   totalStaked: () => Promise<TotalStakedResponse>;
-  totalUnbonding: () => Promise<TotalUnbondingResponse>;
+  totalUnbonding: () => Promise<any>;
   totalRewards: () => Promise<TotalRewardsResponse>;
   rewards: ({
     address
@@ -140,7 +140,7 @@ export class StakeeasyStakeQueryClient implements StakeeasyStakeReadOnlyInterfac
       total_staked: {}
     });
   };
-  totalUnbonding = async (): Promise<TotalUnbondingResponse> => {
+  totalUnbonding = async (): Promise<any> => {
     return this.client.queryContractSmart(this.contractAddress, {
       total_unbonding: {}
     });
