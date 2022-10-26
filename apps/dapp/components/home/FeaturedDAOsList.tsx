@@ -33,7 +33,7 @@ export const FeaturedDAOsList = ({ featuredDaos }: FeaturedDAOsListProps) => {
         </div>
         {/* Show create button here if no pinned DAOs. */}
         {pinnedAddresses.length === 0 && (
-          <Link href="/dao/create" passHref>
+          <Link href="/dao/create" passHref legacyBehavior>
             <Button size="sm">
               <PlusIcon className="w-4 h-4" /> {t('button.create')}
             </Button>

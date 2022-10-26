@@ -158,7 +158,7 @@ export const Header = () => {
         { 'border-b border-inactive': !mobileNavVisible }
       )}
     >
-      <Link href="/">
+      <Link href="/" legacyBehavior>
         <a className="flex flex-row gap-4 items-center w-full">
           <Logo className="rounded-full border border-default" size={36} />
 

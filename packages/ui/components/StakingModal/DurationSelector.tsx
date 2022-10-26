@@ -46,6 +46,7 @@ export const DurationButton = ({
     }
     className={clsx('flex flex-row justify-center w-full', className)}
     onClick={() =>
+      
       setAmount(
         Math.min(
           Math.max(
@@ -57,6 +58,8 @@ export const DurationButton = ({
           max
         )
       )
+      
+      
     }
     variant="secondary"
   >

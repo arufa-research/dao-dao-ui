@@ -19,7 +19,7 @@ function Paginator({
   return (
     <div className="flex gap-2 items-center">
       {Array.from(Array(total), (_, i) => (
-        <Link key={i + 1} href={`?page=${i + 1}&limit=${limit}`} passHref>
+        <Link legacyBehavior key={i + 1} href={`?page=${i + 1}&limit=${limit}`} passHref>
           <Button className={`${page - 1 === i ? 'ring' : ''}`} size="sm">
             {i + 1}
           </Button>

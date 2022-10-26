@@ -32,11 +32,7 @@ export const Nav = ({ onMenuClick }: NavProps) => {
       <nav className="flex sticky top-0 flex-col justify-between p-6 w-full h-screen text-lg border-r border-inactive">
         <div>
           <div className="flex justify-between items-center lg:justify-start">
-            <Link href="/home">
-              <a>
-                <Logo size={28} />
-              </a>
-            </Link>
+            <Link href="/home" legacyBehavior><a><Logo size={28} /></a></Link>
             <div className="cursor-pointer lg:hidden" onClick={onMenuClick}>
               <MenuIcon className="w-8" />
             </div>

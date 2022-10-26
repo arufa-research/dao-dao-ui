@@ -24,7 +24,7 @@ const Custom500: NextPage = () => {
         <ErrorPage title={t('title.500')}>
           <p>
             {t('error.errorOccurredOnPage')}{' '}
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a className="underline hover:no-underline">
                 {t('info.considerReturningHome')}
               </a>

@@ -70,7 +70,7 @@ const InnerDaoProposals = () => {
 
         <Link
           className={clsx({ 'pointer-events-none': isMember })}
-          href={`/dao/${coreAddress}/proposals/create`}
+          href={`/dao/${coreAddress}/proposals/create`} legacyBehavior
         >
           <a>
             <Tooltip label={tooltip}>

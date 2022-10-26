@@ -15,7 +15,7 @@ export const EnterAppButton = ({ small }: EnterAppButtonProps) => {
   const { t } = useTranslation()
 
   return (
-    <Link href="/home">
+    <Link href="/home" legacyBehavior>
       <a>
         <Button size={small ? 'sm' : 'lg'}>
           {t('splash.cta')}

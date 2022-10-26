@@ -67,12 +67,7 @@ const InnerPinnedProposalLine = ({
   return (
     <SuspenseLoader fallback={<ProposalLineLoader Logo={Logo} />}>
       <div className="flex flex-row gap-1 items-cener">
-        <Link href={proposalViewUrl}>
-          <a className="grow">
-            <PinnedProposalLine.Desktop className="hidden md:grid" />
-            <PinnedProposalLine.Mobile className="block md:hidden" />
-          </a>
-        </Link>
+        <Link href={proposalViewUrl}><a className="grow"><PinnedProposalLine.Desktop className="hidden md:grid" /><PinnedProposalLine.Mobile className="block md:hidden" /></a></Link>
 
         <Tooltip label={t('info.hideFromPageTooltip')}>
           <Button className="!px-2" onClick={markDone} variant="secondary">

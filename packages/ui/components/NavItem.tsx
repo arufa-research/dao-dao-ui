@@ -47,8 +47,6 @@ export const NavItem = ({
       {contents}
     </a>
   ) : (
-    <Link href={href}>
-      <a className={aClassName}>{contents}</a>
-    </Link>
+    <Link href={href}><a className={aClassName}>{contents}</a></Link>
   )
 }

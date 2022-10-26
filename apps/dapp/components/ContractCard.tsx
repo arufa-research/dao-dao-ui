@@ -50,9 +50,7 @@ export const ContractCard = ({
 
   return (
     <div className="relative w-full">
-      <Link href={href}>
-        <a onClick={() => setLoading(true)}>
-          <div
+      <Link href={href} legacyBehavior><a onClick={() => setLoading(true)}><div
             className={clsx(
               'flex relative flex-col justify-between items-center p-6 w-full h-[320px] bg-card from-transparent rounded-lg hover:outline-1 hover:outline-brand hover:outline',
               selected && 'outline-1 outline-brand outline'
@@ -118,9 +116,8 @@ export const ContractCard = ({
                 </div>
               )}
             </div>
-          </div>
-        </a>
-      </Link>
+          </div></a></Link>
+      
       {onPin !== undefined && pinned !== undefined && (
         <button
           className="absolute top-[18px] right-[18px] text-brand"

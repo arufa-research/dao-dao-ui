@@ -53,12 +53,7 @@ const InnerProposalLine = ({ proposalViewUrl }: InnerProposalLineProps) => {
 
   return (
     <SuspenseLoader fallback={<ProposalLineLoader Logo={Logo} />}>
-      <Link href={proposalViewUrl}>
-        <a>
-          <ProposalLine.Desktop className="hidden md:grid" />
-          <ProposalLine.Mobile className="block md:hidden" />
-        </a>
-      </Link>
+      <Link href={proposalViewUrl}><a><ProposalLine.Desktop className="hidden md:grid" /><ProposalLine.Mobile className="block md:hidden" /></a></Link>
     </SuspenseLoader>
   )
 }

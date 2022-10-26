@@ -60,7 +60,7 @@ const Home: NextPage<HomePageProps> = ({ featuredDaos }) => {
       <GradientWrapper>
         <nav className="py-4 px-6 w-full bg-clip-padding bg-opacity-40 border-b border-inactive backdrop-blur-xl backdrop-filter">
           <div className="flex justify-between items-center mx-auto max-w-screen-lg">
-            <Link href="/" passHref>
+            <Link href="/" passHref legacyBehavior>
               <a className="flex items-center">
                 <div className="mr-3">
                   <Logo size={32} />

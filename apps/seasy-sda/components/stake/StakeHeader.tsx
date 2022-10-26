@@ -7,8 +7,12 @@ import { useApr } from '@/hooks'
 
 import { Loader } from '../Loader'
 import { Logo } from '../Logo'
+import Dropdown from "./Dropdown";
+import { useState } from "react";
 
 export const StakeHeader = () => {
+  const [selected, setSelected] = useState("7 Days");
+  const [selectedApr, setSelectedApr] = useState("100");
   const { t } = useTranslation()
   const {
     hooks: { useGovernanceTokenInfo, useStakingInfo },
@@ -103,15 +107,17 @@ export const StakeHeader = () => {
         <div className="flex flex-col gap-2 items-center p-2">
           <p className="overflow-hidden font-mono text-sm text-tertiary text-ellipsis">
             {t('title.aprReward')}
+            
           </p>
+          <Dropdown selected={selected}  apr={selectedApr} setApr={setSelectedApr} setSelected={setSelected} />
 
           <p className="text-base lg:text-xl header-text">
             +
-            {(apr * 100).toLocaleString(undefined, {
+            {(Number(selectedApr) * 100).toLocaleString(undefined, {
               maximumFractionDigits: 2,
               // eslint-disable-next-line i18next/no-literal-string
             })}
-            % APR
+            %
           </p>
         </div>
       </div>

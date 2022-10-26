@@ -24,9 +24,9 @@ export const NavListItem = ({ href, icon: Icon, text }: NavListItemProps) => {
         <div className="flex items-center">
           <Icon className="w-5 h-5" />
         </div>
-        <Link href={href}>
-          <a className="w-full link-text">{text}</a>
-        </Link>
+        <Link href={href}><a className="w-full link-text">{text}</a></Link>
+          
+        
       </div>
     </li>
   )

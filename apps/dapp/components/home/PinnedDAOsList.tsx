@@ -27,7 +27,7 @@ export const PinnedDAOsList = () => {
           <PinOutline className="inline w-4" />
           <p>{t('info.pinned')}</p>
         </div>
-        <Link href="/dao/create" passHref>
+        <Link href="/dao/create" passHref legacyBehavior>
           <Button size="sm">
             <PlusIcon className="w-4 h-4" /> {t('button.create')}
           </Button>

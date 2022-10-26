@@ -17,7 +17,7 @@ const Custom404: NextPage = () => {
       <ErrorPage title={t('title.404')}>
         <p>
           {t('error.pageNotFound')}{' '}
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <a className="underline link-text">
               {t('info.considerReturningHome')}
             </a>

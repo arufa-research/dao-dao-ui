@@ -45,11 +45,8 @@ export const PinnedDAONavList = () => {
             text={config.name}
           />
         ))}
-      <Link href="/dao/create">
-        <a className="flex gap-2 items-center mt-2 hover:underline link-text">
-          <PlusIcon className="w-5 h-5" /> {t('button.create')}
-        </a>
-      </Link>
+      <Link href="/dao/create" legacyBehavior><a className="flex gap-2 items-center mt-2 hover:underline link-text"><PlusIcon className="w-5 h-5" /> {t('button.create')}</a></Link>
+      
     </ul>
   )
 }
@@ -78,7 +75,7 @@ export const MobilePinnedDAONavList = () => {
   return (
     <ul className="flex overflow-auto gap-1 list-none no-scrollbar">
       {daosWithAddresses.map(({ config, address }) => (
-        <Link key={address} href={`/dao/${address}`} passHref>
+        <Link key={address} href={`/dao/${address}` } passHref legacyBehavior>
           <a
             className="flex flex-col gap-3 items-center p-5 min-w-[100px] max-w-[100px] bg-tab-hover rounded transition"
             style={{
