@@ -64,7 +64,7 @@ export const UnstakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
         )}
 
         <Button
-          className="text-base"
+          className="text-base bg-[#f2545b]"
           disabled={!connected}
           onClick={setShowStakingMode}
           variant="secondary"
@@ -144,7 +144,7 @@ export const StakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
         )}
 
         <Button
-          className="text-base"
+         className="text-base bg-[#f2545b]"
           disabled={!connected}
           onClick={setShowStakingMode}
           variant="secondary"

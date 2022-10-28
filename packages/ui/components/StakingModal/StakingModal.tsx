@@ -185,7 +185,7 @@ const StakeUnstakeModesBody = ({
 
   return (
     <>
-      <div className="flex flex-col mt-5">
+      <div className="flex flex-col mt-5 bg-[#111527]">
         <h2 className="mb-3 primary-text">{t('title.chooseTokenAmount')}</h2>
         <AmountSelector amount={amount} max={max} setAmount={setAmount} />
         {amount > max && (

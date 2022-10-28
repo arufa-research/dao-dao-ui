@@ -53,7 +53,7 @@ const InnerVote = ({ missionMarkdown }: InnerVoteProps) => {
         <h3 className="title-text">{t('title.proposals')}</h3>
 
         <Button
-          className="shrink-0"
+          className="shrink-0 bg-[#f2545b]"
           onClick={() => router.push('/propose')}
           size="sm"
           type="button"

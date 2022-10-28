@@ -23,11 +23,7 @@ export const VoteHeroContentLoader = () => {
       <VoteHeroHeader image={<Loader size="100%" />} />
       <VoteHeroStats
         additionalStats={[
-          {
-            Icon: Apr,
-            title: t('title.apr') + ':',
-            value: undefined,
-          },
+          
           ...(VOTE_EXTERNAL_URL
             ? [
                 {
@@ -66,17 +62,13 @@ export const VoteHeroContent = () => {
       />
       <VoteHeroStats
         additionalStats={[
-          {
-            Icon: Apr,
-            title: t('title.apr') + ':',
-            value: (apr * 100).toLocaleString() + '%',
-          },
+          
           ...(VOTE_EXTERNAL_URL
             ? [
                 {
                   link: true,
                   Icon: LinkIcon,
-                  title: 'junoswap.com',
+                  title: 'stakeeasy.finance',
                   value: VOTE_EXTERNAL_URL,
                 },
               ]

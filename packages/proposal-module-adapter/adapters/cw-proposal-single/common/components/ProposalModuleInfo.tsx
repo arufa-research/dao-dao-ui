@@ -84,7 +84,7 @@ const StatelessProposalModuleInfo = ({
   return (
     <div
       className={clsx(
-        'flex flex-wrap gap-x-8 gap-y-4 justify-around items-center p-5 rounded border border-inactive',
+        'flex flex-wrap gap-x-8 gap-y-4 bg-[#111527] justify-around items-center p-5 rounded border border-inactive',
         className
       )}
     >

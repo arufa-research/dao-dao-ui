@@ -150,7 +150,7 @@ export const Header = () => {
   return (
     <header
       className={clsx(
-        'grid grid-cols-2 items-center py-4 px-6 h-20 sm:grid-cols-3 md:grid-cols-[2fr_3fr_2fr]',
+        'grid grid-cols-2 items-center bg-[#111527] py-4 px-6 h-20 sm:grid-cols-3 md:grid-cols-[2fr_3fr_2fr]',
         { 'border-b border-inactive': !mobileNavVisible }
       )}
     >

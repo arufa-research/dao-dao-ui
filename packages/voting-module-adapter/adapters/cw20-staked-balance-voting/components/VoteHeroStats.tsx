@@ -1,8 +1,9 @@
 import { ArrowUpIcon } from '@heroicons/react/outline'
 import { useTranslation } from 'react-i18next'
-
+import { Apr } from '@dao-dao/icons'
 import { Dollar, Staked } from '@dao-dao/icons'
-import { HeroStat, HeroStatLink } from '@dao-dao/ui'
+import { useState } from "react";
+import { HeroStat, HeroStatLink,HeroStatDropdown } from '@dao-dao/ui'
 import {
   convertMicroDenomToDenomWithDecimals,
   formatPercentOf100,
@@ -34,24 +35,41 @@ export const InnerVoteHeroStats = ({
   additionalStats,
 }: InnerVoteHeroStatsProps) => {
   const { t } = useTranslation()
+  
+
+  const [selected, setSelected] = useState("7 Days");
+  const [selectedApr, setSelectedApr] = useState("100");
 
   return (
-    <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center items-center py-8 px-6 w-full">
+    <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center items-center overflow-visible py-8 px-6 w-full">
       <HeroStat
         Icon={Dollar}
         title={t('title.totalSupply') + ':'}
         value={data && `${data.totalSupply.toLocaleString()} $${data.denom}`}
+
       />
       <HeroStat
         Icon={Staked}
         title={t('title.staked') + ':'}
         value={data && formatPercentOf100(data.stakedPercent)}
       />
-      <HeroStat
+      <HeroStatDropdown
         Icon={ArrowUpIcon}
         title={t('title.unstakingPeriod') + ':'}
-        value={data?.unstakingDuration}
+        duration={selected}
+        setDuration={setSelected}
+        apr={selectedApr}
+        setApr={setSelectedApr}
+
       />
+      
+      <HeroStat
+        Icon={Apr}
+            title={t('title.apr') + ':'}
+            value={selectedApr+"%"}
+        
+      />
+
       {additionalStats?.map(({ link, ...props }, index) =>
         link ? (
           <HeroStatLink key={index} {...props} />

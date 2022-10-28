@@ -34,6 +34,10 @@ html {
   color-scheme: light;
 }
 
+body{
+  background-image: url("simple_bg.png");
+}
+
 html[data-theme='dark'] {
   --logo-fill: #fff;
   color-scheme: dark;
