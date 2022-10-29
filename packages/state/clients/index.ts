@@ -27,3 +27,4 @@ export {
   CwNativeStakedBalanceVotingQueryClient,
 } from './cw-native-staked-balance-voting'
 export { StakeCw20Client, StakeCw20QueryClient } from './stake-cw20'
+export { StakeeasyStakeClient, StakeeasyStakeQueryClient } from './stakeeasy-stake'
