@@ -1,11 +1,23 @@
 import { useWalletManager } from '@noahsaso/cosmodal'
 import { useTranslation } from 'react-i18next'
+import {
+  Cw20StakedBalanceVotingSelectors,
+  CwRewardsSelectors,
+  StakeCw20Selectors,
+  useVotingModule,
+  Cw20BaseSelectors,
 
+  StakeeasyStakeSelectors
+} from '@dao-dao/state'
+import { useState } from "react";
+import { constSelector, useRecoilValue } from 'recoil'
+import { useWallet } from '@noahsaso/cosmodal'
 import { Trans } from '@dao-dao/common'
 import {
   convertMicroDenomToDenomWithDecimals,
   formatPercentOf100,
 } from '@dao-dao/utils'
+
 import { useVotingModuleAdapter } from '@dao-dao/voting-module-adapter'
 
 import { Button } from '../Button'
@@ -34,6 +46,22 @@ export const UnstakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
   if (!governanceTokenInfo || (connected && _unstakedBalance === undefined)) {
     return <BalanceCardLoader />
   }
+  const tokenContractAddress = useRecoilValue(
+    StakeeasyStakeSelectors.tokenContractSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    }))
+
+    const [bal, setBal] = useState("7 Days");
+
+   const balanceInfo=useRecoilValue(
+     Cw20BaseSelectors.balanceSelector({
+      contractAddress:tokenContractAddress,
+      params:[{address:address}]
+    }))
+
+    setBal(balanceInfo.balance);
+
 
   const unstakedBalance = convertMicroDenomToDenomWithDecimals(
     _unstakedBalance ?? 0,
@@ -45,9 +73,7 @@ export const UnstakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
       <div className="flex flex-row gap-2 items-center mb-4">
         <Logo size={20} />
         <p className="text-base">
-          {unstakedBalance.toLocaleString(undefined, {
-            maximumFractionDigits: governanceTokenInfo.decimals,
-          })}{' '}
+         {bal}{' '}
           {governanceTokenInfo.name}
         </p>
       </div>

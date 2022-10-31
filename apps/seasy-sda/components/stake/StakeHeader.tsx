@@ -7,8 +7,11 @@ import {
   CwRewardsSelectors,
   StakeCw20Selectors,
   useVotingModule,
+  Cw20BaseSelectors,
+
   StakeeasyStakeSelectors
 } from '@dao-dao/state'
+import { useWallet } from '@noahsaso/cosmodal'
 
 import { DAO_ADDRESS, REWARDS_ADDRESS } from '@/util'
 import { useApr } from '@/hooks'
@@ -21,6 +24,8 @@ import { useState } from "react";
 export const StakeHeader = () => {
   const [selected, setSelected] = useState("7 Days");
   const [selectedApr, setSelectedApr] = useState("100");
+  // const { connected, address: walletAddress } = useWallet();
+  const { address } = useWallet()
 
   const [apr7,setApr7]=useState(0);
   const [apr14,setApr14]=useState(0);
@@ -39,6 +44,10 @@ export const StakeHeader = () => {
       contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
       params:[]
     }))
+
+    
+
+    
 
     const undistributedRewards=useRecoilValue(
     StakeeasyStakeSelectors.distributedRewardsSelector({
