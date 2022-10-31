@@ -5,6 +5,7 @@ import {
   CwRewardsSelectors,
   StakeCw20Selectors,
   useVotingModule,
+  StakeeasyStakeSelectors
 } from '@dao-dao/state'
 import { JUNO_BLOCKS_PER_YEAR } from '@dao-dao/utils'
 

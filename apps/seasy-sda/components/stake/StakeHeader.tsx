@@ -1,8 +1,16 @@
 import { useTranslation } from 'react-i18next'
-
+import { constSelector, useRecoilValue } from 'recoil'
 import { convertMicroDenomToDenomWithDecimals } from '@dao-dao/utils'
 import { useVotingModuleAdapter } from '@dao-dao/voting-module-adapter'
+import {
+  Cw20StakedBalanceVotingSelectors,
+  CwRewardsSelectors,
+  StakeCw20Selectors,
+  useVotingModule,
+  StakeeasyStakeSelectors
+} from '@dao-dao/state'
 
+import { DAO_ADDRESS, REWARDS_ADDRESS } from '@/util'
 import { useApr } from '@/hooks'
 
 import { Loader } from '../Loader'
@@ -13,6 +21,64 @@ import { useState } from "react";
 export const StakeHeader = () => {
   const [selected, setSelected] = useState("7 Days");
   const [selectedApr, setSelectedApr] = useState("100");
+
+  const [apr7,setApr7]=useState(0);
+  const [apr14,setApr14]=useState(0);
+  const [apr28,setApr28]=useState(0);
+  const [apr56,setApr56]=useState(0);
+  const aprArray=[];
+  
+  const tokenContractAddress = useRecoilValue(
+    StakeeasyStakeSelectors.tokenContractSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    }))
+
+    const bondingInfo=useRecoilValue(
+    StakeeasyStakeSelectors.bondingInfoSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    }))
+
+    const undistributedRewards=useRecoilValue(
+    StakeeasyStakeSelectors.distributedRewardsSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    }))
+    
+
+   
+    // for(let i=0;i<4;i++){
+    //    const obj=bondingInfo[i];
+    //    if(obj){
+    //     aprArray.push((Number(obj.reward_multiplier)*Number(undistributedRewards.distributed)*365)/Number(obj.total_staked));
+    //    }
+      
+    // }
+    
+    console.log("aprs",aprArray);
+    
+    
+
+    console.log("bd",bondingInfo);
+    console.log("dr",undistributedRewards);
+
+    const totalValueStaked = useRecoilValue(
+    StakeeasyStakeSelectors.totalStakedSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    })
+
+    
+  )
+  
+  const totalUnbonding = useRecoilValue(
+    StakeeasyStakeSelectors.totalUnbondingSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    }))
+console.log(tokenContractAddress);
+console.log(totalValueStaked);
   const { t } = useTranslation()
   const {
     hooks: { useGovernanceTokenInfo, useStakingInfo },
@@ -93,7 +159,7 @@ export const StakeHeader = () => {
 
           <p className="text-base lg:text-xl header-text">
             {convertMicroDenomToDenomWithDecimals(
-              totalStakedValue,
+              totalValueStaked.total_staked,
               governanceTokenInfo.decimals
             ).toLocaleString(undefined, {
               maximumFractionDigits: 0,
