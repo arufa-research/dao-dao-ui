@@ -23,7 +23,7 @@ import { useState } from "react";
 
 export const StakeHeader = () => {
   const [selected, setSelected] = useState("7 Days");
-  const [selectedApr, setSelectedApr] = useState("100");
+  
   // const { connected, address: walletAddress } = useWallet();
   const { address } = useWallet()
 
@@ -57,13 +57,19 @@ export const StakeHeader = () => {
     
 
    
-    // for(let i=0;i<4;i++){
-    //    const obj=bondingInfo[i];
-    //    if(obj){
-    //     aprArray.push((Number(obj.reward_multiplier)*Number(undistributedRewards.distributed)*365)/Number(obj.total_staked));
-    //    }
+    for(let i=0;i<4;i++){
+       const obj=bondingInfo.bonding[i];
+       if(obj){
+    aprArray.push((Number(obj.reward_multiplier)*Number(undistributedRewards.distributed)*365)/Number(obj.total_staked)?(Number(obj.reward_multiplier)*Number(undistributedRewards.distributed)*365*100)/Number(obj.total_staked):"0");
+    
+       }else{
+        aprArray.push("0");
+       }
       
-    // }
+      
+      
+    }
+    const [selectedApr, setSelectedApr] = useState(aprArray[0]);
     
     console.log("aprs",aprArray);
     
@@ -184,7 +190,7 @@ console.log(totalValueStaked);
             {t('title.aprReward')}
             
           </p>
-          <Dropdown selected={selected}  apr={selectedApr} setApr={setSelectedApr} setSelected={setSelected} />
+          <Dropdown selected={selected}  apr={selectedApr} setApr={setSelectedApr} aprList={aprArray} setSelected={setSelected} />
 
           <p className="text-base lg:text-xl header-text">
             +

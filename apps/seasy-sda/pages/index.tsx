@@ -82,9 +82,9 @@ const InnerStake = () => {
                       name: governanceTokenInfo.name,
                     })}
                   </span>
-                  <TooltipIcon
+                  {/* <TooltipIcon
                     label={t('info.autoCompoundStakingRewardsTooltip')}
-                  />
+                  /> */}
                 </p>
 
                 <SuspenseLoader fallback={<BalanceCardLoader />}>

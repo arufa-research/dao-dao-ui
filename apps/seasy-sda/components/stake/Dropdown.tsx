@@ -1,9 +1,9 @@
 import { useState } from "react";
 // import "./Dropdown.css"
-function Dropdown({ selected, setSelected,apr,setApr }) {
+function Dropdown({ selected, setSelected,apr,setApr,aprList }) {
   const [isActive, setIsActive] = useState(false);
   const options = ["7 days", "14 days", "28 days","56 days"];
-  const aprs=["100","200","300","400"];
+  const aprs=aprList;
 
   return (
     <div className="dropdown">

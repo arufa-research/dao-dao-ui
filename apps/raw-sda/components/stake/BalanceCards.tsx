@@ -46,21 +46,7 @@ export const UnstakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
   if (!governanceTokenInfo || (connected && _unstakedBalance === undefined)) {
     return <BalanceCardLoader />
   }
-  const tokenContractAddress = useRecoilValue(
-    StakeeasyStakeSelectors.tokenContractSelector({
-      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
-      params:[]
-    }))
-
-    const [bal, setBal] = useState("7 Days");
-
-   const balanceInfo=useRecoilValue(
-     Cw20BaseSelectors.balanceSelector({
-      contractAddress:tokenContractAddress,
-      params:[{address:address}]
-    }))
-
-    setBal(balanceInfo.balance);
+  
 
 
   const unstakedBalance = convertMicroDenomToDenomWithDecimals(
@@ -73,7 +59,7 @@ export const UnstakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
       <div className="flex flex-row gap-2 items-center mb-4">
         <Logo size={20} />
         <p className="text-base">
-         {bal}{' '}
+         
           {governanceTokenInfo.name}
         </p>
       </div>

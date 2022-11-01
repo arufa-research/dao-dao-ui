@@ -1,13 +1,24 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+  Cw20StakedBalanceVotingSelectors,
+  CwRewardsSelectors,
+  StakeCw20Selectors,
+  useVotingModule,
+  Cw20BaseSelectors,
+  
 
+  StakeeasyStakeSelectors
+} from '@dao-dao/state'
+import { useState } from "react";
+import { constSelector, useRecoilValue } from 'recoil'
 import { Duration } from '@dao-dao/types/contracts/cw3-dao'
 import {
   convertMicroDenomToDenomWithDecimals,
   durationIsNonZero,
   humanReadableDuration,
 } from '@dao-dao/utils'
-
+import { useWallet } from '@noahsaso/cosmodal'
 import { Modal } from '../Modal'
 import { ActionButton } from './ActionButton'
 import { AmountSelector } from './AmountSelector'
@@ -93,9 +104,57 @@ export const StakingModal = ({
 }: StakingModalProps) => {
   const { t } = useTranslation()
   const stakingModeTitle = useStakingModeTitle()
-  const maxTx = mode === StakingMode.Stake ? stakableTokens : unstakableTokens
+ 
 
-  const invalidAmount = (): string | undefined => {
+  
+
+  
+  const {address: walletAddress } = useWallet()
+  const tokenContractAddress = useRecoilValue(
+    StakeeasyStakeSelectors.tokenContractSelector({
+      contractAddress:"juno1m6qyz7z2srqzzt5243kxay9wvt4gjsgy3ndpkql0tk86pw6r5cnsha5fax",
+      params:[]
+    }))
+    
+           
+    // const client = useRecoilValue(
+    // StakeCw20Selectors.executeClient({
+      
+    //   params:[{contractAddress:tokenContractAddress,sender:walletAddress}]
+     
+    // }))
+    // const sendTokenFunction=async()=>{
+    //   const res=client.execute(
+    //   walletAddress,
+    //   tokenContractAddress,
+    //   {
+    //     send: {
+    //       amount,
+    //       tokenContractAddress,
+    //        msg:{
+    //     delegate: { unbondingperiod:1500 }
+    //         }
+    //     },
+    //   },
+    //   'auto'
+    // )
+
+    // }
+
+
+    
+    
+
+   
+
+
+const balanceInfo=useRecoilValue(
+     Cw20BaseSelectors.balanceSelector({
+      contractAddress:tokenContractAddress,
+      params:[{address:walletAddress}]
+    }))
+     const maxTx = mode === StakingMode.Stake ? Number(balanceInfo.balance)/1000000 : unstakableTokens
+    const invalidAmount = (): string | undefined => {
     if (mode === StakingMode.Claim) {
       return claimableTokens > 0 ? undefined : t('error.cannotTxZeroTokens')
     }
@@ -106,7 +165,6 @@ export const StakingModal = ({
       return t('error.cannotStakeMoreThanYouHave')
     }
   }
-
   return (
     <Modal onClose={onClose}>
       <div className="flex justify-between items-center">
@@ -116,7 +174,7 @@ export const StakingModal = ({
       {mode === StakingMode.Stake && (
         <StakeUnstakeModesBody
           amount={amount}
-          max={stakableTokens}
+          max={Number(balanceInfo.balance)/1000000}
           mode={mode}
           proposalDeposit={proposalDeposit}
           setAmount={(amount: number) => setAmount(amount)}
@@ -149,7 +207,7 @@ export const StakingModal = ({
           loading={loading}
           mode={mode}
           onClick={() =>
-            onAction(
+               onAction(
               mode,
               mode === StakingMode.Claim ? claimableTokens : amount
             )

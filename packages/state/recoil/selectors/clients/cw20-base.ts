@@ -22,7 +22,7 @@ type QueryClientParams = {
   contractAddress: string
 }
 
-const queryClient = selectorFamily<QueryClient, QueryClientParams>({
+export const queryClient = selectorFamily<QueryClient, QueryClientParams>({
   key: 'cw20BaseQueryClient',
   get:
     ({ contractAddress }) =>
