@@ -64,7 +64,7 @@ export const StakeHeader = () => {
       </p>
 
       <div className="flex flex-row justify-around items-center p-5 w-full text-center border-t border-inactive md:gap-12 md:justify-center">
-        <div className="flex flex-col gap-2 items-center p-2">
+        {/* <div className="flex flex-col gap-2 items-center p-2">
           <p className="overflow-hidden font-mono text-sm text-tertiary text-ellipsis">
             {t('title.daoTreasury')}
           </p>
@@ -78,7 +78,7 @@ export const StakeHeader = () => {
             })}{' '}
             {governanceTokenInfo.symbol}
           </p>
-        </div>
+        </div> */}
 
         <div className="w-[1px] h-6 bg-dark opacity-10"></div>
 
