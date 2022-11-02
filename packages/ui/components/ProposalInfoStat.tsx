@@ -11,11 +11,11 @@ export const ProposalInfoStat = ({
   value,
   title,
 }: ProposalInfoStatProps) => (
-  <div className="flex gap-3 items-center">
+  <div className="flex gap-4 items-center">
     <Icon className="h-3 fill-current secondary-text" />
-    <div className="flex gap-2 items-center">
-      <span className="secondary-text">{title}</span>
-      <span className="link-text">{value ?? '...'}</span>
+    <div className="items-center">
+      <span className="text-base secondary-text">{title}</span><br></br>
+      <span className="text-lg link-text">{value ?? '...'}</span>
     </div>
   </div>
 )

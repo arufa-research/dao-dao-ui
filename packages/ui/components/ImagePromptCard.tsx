@@ -20,7 +20,7 @@ export const ImagePromptCard = ({
   <Link href={href}>
     <a
       className={clsx(
-        'overflow-hidden rounded-md border border-default hover:border-brand transition',
+        'overflow-hidden rounded-md border border-default hover:border-brand transition planetbg',
         {
           'w-full': fullWidth,
           'max-w-[400px] md:w-max': !fullWidth,

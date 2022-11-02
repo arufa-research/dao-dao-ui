@@ -51,7 +51,7 @@ export const StakeHeader = () => {
       </div>
 
       <p className="p-5 mt-12 w-full font-studiofeixen text-2xl  text-center border-t border-inactive">
-        1 {governanceTokenInfo.symbol} =
+        {/* 1 {governanceTokenInfo.symbol} =
         {governanceTokenPrice
           ? ' $' +
             governanceTokenPrice.toLocaleString(undefined, {
@@ -60,7 +60,7 @@ export const StakeHeader = () => {
             }) +
             ' USDC'
           : // eslint-disable-next-line i18next/no-literal-string
-            ' $ ??'}
+            ' $ ??'} */}
       </p>
 
       <div className="flex flex-row justify-around items-center p-5 w-full text-center border-t border-inactive md:gap-12 md:justify-center">

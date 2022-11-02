@@ -61,7 +61,7 @@ const InnerVote = ({ missionMarkdown }: InnerVoteProps) => {
         </Button>
       </div>
 
-      <div className="mt-4 mb-6 space-y-2">
+      <div className="mt-4 mb-6 space-y-2 planetbg">
         {proposalModuleInfos.map((ProposalModuleInfo, index) => (
           <ProposalModuleInfo key={index} />
         ))}
