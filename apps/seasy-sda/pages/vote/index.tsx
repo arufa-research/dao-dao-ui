@@ -13,7 +13,6 @@ import { matchAndLoadCommon } from '@dao-dao/proposal-module-adapter'
 
 import {
   Button,
-  DescriptionAndAirdropAllocation,
   Loader,
   Logo,
   PageWrapper,

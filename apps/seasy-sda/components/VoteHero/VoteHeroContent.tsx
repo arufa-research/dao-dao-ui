@@ -76,7 +76,7 @@ export const VoteHeroContent = () => {
                 {
                   link: true,
                   Icon: LinkIcon,
-                   title: 'stakeeasy.finance',
+                  title: 'stakeeasy.finance',
                   value: VOTE_EXTERNAL_URL,
                 },
               ]
