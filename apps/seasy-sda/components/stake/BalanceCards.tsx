@@ -48,7 +48,7 @@ export const UnstakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
           {unstakedBalance.toLocaleString(undefined, {
             maximumFractionDigits: governanceTokenInfo.decimals,
           })}{' '}
-          {governanceTokenInfo.name}
+          {governanceTokenInfo.symbol}
         </p>
       </div>
 
@@ -114,7 +114,7 @@ export const StakedBalanceCard = ({ setShowStakingMode }: CardProps) => {
             {stakedValue.toLocaleString(undefined, {
               maximumFractionDigits: governanceTokenInfo.decimals,
             })}{' '}
-            {governanceTokenInfo.name}
+            {governanceTokenInfo.symbol}
           </p>
         </div>
 

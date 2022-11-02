@@ -76,7 +76,7 @@ export const StakeHeader = () => {
             ).toLocaleString(undefined, {
               maximumFractionDigits: 0,
             })}{' '}
-            {governanceTokenInfo.name}
+            {governanceTokenInfo.symbol}
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export const StakeHeader = () => {
             ).toLocaleString(undefined, {
               maximumFractionDigits: 0,
             })}{' '}
-            {governanceTokenInfo.name}
+            {governanceTokenInfo.symbol}
           </p>
         </div>
 
