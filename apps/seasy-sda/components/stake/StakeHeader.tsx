@@ -2,13 +2,16 @@ import { useTranslation } from 'react-i18next'
 
 import { convertMicroDenomToDenomWithDecimals } from '@dao-dao/utils'
 import { useVotingModuleAdapter } from '@dao-dao/voting-module-adapter'
-
+import Dropdown from "./Dropdown";
+import { useState } from "react";
 import { useApr } from '@/hooks'
 
 import { Loader } from '../Loader'
 import { Logo } from '../Logo'
 
 export const StakeHeader = () => {
+   const [selected, setSelected] = useState("7 Days");
+  const [selectedApr, setSelectedApr] = useState("100");
   const { t } = useTranslation()
   const {
     hooks: { useGovernanceTokenInfo, useStakingInfo },
@@ -104,14 +107,14 @@ export const StakeHeader = () => {
           <p className="overflow-hidden font-mono text-sm text-tertiary text-ellipsis">
             {t('title.aprReward')}
           </p>
-
+              <Dropdown selected={selected}  apr={selectedApr} setApr={setSelectedApr} setSelected={setSelected} />
           <p className="text-base lg:text-xl header-text">
             +
-            {(apr * 100).toLocaleString(undefined, {
+            {(Number(selectedApr) * 100).toLocaleString(undefined, {
               maximumFractionDigits: 2,
               // eslint-disable-next-line i18next/no-literal-string
             })}
-            % APR
+            %
           </p>
         </div>
       </div>

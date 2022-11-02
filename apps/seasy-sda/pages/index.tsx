@@ -45,7 +45,7 @@ const InnerStake = () => {
   return (
     <>
       <div className="space-y-8">
-        <div className="flex relative flex-col items-center mt-16 bg-primary rounded-b-lg border-t border-inactive lg:mt-32">
+        <div className="flex relative flex-col items-center mt-16  planetbg bg-primary rounded-b-lg border-t border-inactive lg:mt-32">
           <SuspenseLoader fallback={<StakeHeaderLoader />}>
             <StakeHeader />
           </SuspenseLoader>
@@ -59,7 +59,7 @@ const InnerStake = () => {
         {connected ? (
           <>
             <div className="flex flex-col gap-4 justify-start items-stretch !mt-4 lg:flex-row">
-              <div className="flex-1 p-6 rounded-lg border border-default">
+              <div className="flex-1 p-6  planetbg rounded-lg border border-default">
                 <p className="mb-2 font-mono text-sm text-tertiary">
                   {t('title.balanceUnstaked', {
                     name: governanceTokenInfo.name,
@@ -75,7 +75,7 @@ const InnerStake = () => {
                 </SuspenseLoader>
               </div>
 
-              <div className="flex-1 p-6 rounded-lg border border-default">
+              <div className="flex-1  planetbg p-6 rounded-lg border border-default">
                 <p className="flex gap-2 mb-2 font-mono text-sm text-tertiary">
                   <span>
                     {t('title.votingPowerStakedAndRewards', {

@@ -1,7 +1,7 @@
 import '@dao-dao/ui/styles/index.css'
 import '@fontsource/inter/latin.css'
 import '@fontsource/jetbrains-mono/latin.css'
-
+import "@/components/stake/Dropdown.css"
 import { appWithTranslation } from 'next-i18next'
 import { DefaultSeo } from 'next-seo'
 import type { AppProps } from 'next/app'
@@ -70,13 +70,13 @@ const SDA = (props: AppProps) => {
             type: 'image/png',
           },
           {
-            href: '/favicon-32x32.png',
+            href: 'seasy.png',
             rel: 'icon',
             sizes: '32x32',
             type: 'image/png',
           },
           {
-            href: '/favicon-16x16.png',
+            href: 'seasy.png',
             rel: 'icon',
             sizes: '16x16',
             type: 'image/png',
