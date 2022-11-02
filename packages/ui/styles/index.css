@@ -49,6 +49,13 @@ menu {
   height: auto !important;
   border-radius: 6px;
 }
+body{
+  background-image: url("simple_bg.png");
+}
+.planetbg{
+  background-image: url("planet_bg_faded.png");
+}
+
 
 /* Don't show default up / down arrows on number input. */
 input[type='number']::-webkit-inner-spin-button,
