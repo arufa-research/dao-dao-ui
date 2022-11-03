@@ -39,7 +39,7 @@ export const InnerVoteHeroStats = ({
     <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center items-center py-8 px-6 w-full">
       <HeroStat
         Icon={Dollar}
-        title={t('title.totalSupply') + ':'}
+        title={"Total Circulating  supply" + ':'}
         value={data && `${data.totalSupply.toLocaleString()} $${data.denom}`}
       />
       <HeroStat
